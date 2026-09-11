@@ -25,6 +25,18 @@ Browse restaurants, order food, chat with others, and manage your profile — al
 
 ---
 
+---
+
+## 🎨 UI/UX Design — Figma
+
+The user interface for **FoodWars** was designed and prototyped in Figma before implementation in Flutter.
+
+[![View Figma Design](https://img.shields.io/badge/View%20Design-Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white)](https://www.figma.com/design/3oy1dpGZ569lkrRDql86lQ/foodapp?node-id=0-1&p=f&t=ezW9lGyV1zU2e0Xu-0)
+
+👉 [**Open FoodWars Figma Design**](https://www.figma.com/design/3oy1dpGZ569lkrRDql86lQ/foodapp?node-id=0-1&p=f&t=ezW9lGyV1zU2e0Xu-0)
+
+---
+
 ## ✨ Features
 
 ### 🔐 Authentication
