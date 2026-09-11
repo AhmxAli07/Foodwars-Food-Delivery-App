@@ -14,16 +14,6 @@ Browse restaurants, order food, chat with others, and manage your profile — al
 
 ---
 
-## 📱 Preview
-
-> _Screenshots coming soon. Download the APK below to try the app directly._
-
-| Home | Restaurant Menu | Profile | Chat |
-|------|-----------------|---------|------|
-| _screenshot_ | _screenshot_ | _screenshot_ | _screenshot_ |
-
----
-
 ## 📥 Download APK
 
 > An Android APK is available in the [**GitHub Releases**](../../releases) section.
@@ -40,7 +30,6 @@ Browse restaurants, order food, chat with others, and manage your profile — al
 ### 🔐 Authentication
 - **Email / Password** sign-up and sign-in with form validation
 - **Google Sign-In** via OAuth
-- **Facebook Login** via OAuth
 - **Password reset** via email link
 - Automatic session persistence (returning users are routed directly to home)
 
@@ -95,11 +84,10 @@ Browse restaurants, order food, chat with others, and manage your profile — al
 | File Storage | Firebase Storage |
 | State Management | Provider (ChangeNotifier) |
 | Local Persistence | SharedPreferences |
-| Social Auth | Google Sign-In, Flutter Facebook Auth |
+| Social Auth | Google Sign-In|
 | Image Handling | image_picker, cached_network_image |
 | Navigation | Named routes |
 | UI Components | google_nav_bar, badges, carousel_slider |
-| Notifications | fluttertoast, animated_snack_bar |
 
 ---
 
@@ -107,7 +95,7 @@ Browse restaurants, order food, chat with others, and manage your profile — al
 
 | Firebase Service | Usage |
 |---|---|
-| **Firebase Auth** | Email/password, Google, and Facebook authentication |
+| **Firebase Auth** | Email/password, Google |
 | **Cloud Firestore** | User profiles, menu data, cart, favourites, chat messages, online status |
 | **Firebase Storage** | Profile photo upload and retrieval |
 
@@ -116,16 +104,26 @@ Browse restaurants, order food, chat with others, and manage your profile — al
 ```
 user/
   {uid}/
-    username, email, uid, status, url
-    cart/         — shopping cart items
-    Favourite/    — favourite menu items
+    username
+    email
+    uid
+    status
+    url
+    cart/
+      {cartItem}
+    Favourite/
+      {favouriteItem}
 
 chatroom/
   {roomId}/
-    chats/        — messages with serverTimestamp
+    chats/
+      {message}
 
-GoodMenu/         — menu items for Good Food restaurant
-Search/           — indexed items for cross-menu search
+GoodMenu...
+HealthyMenu...
+SmartMenu...
+VeganMenu...
+Search/
 ```
 
 ---
@@ -180,7 +178,7 @@ lib/
 
 ### Prerequisites
 
-- [Flutter SDK](https://flutter.dev/docs/get-started/install) **>=3.1.2**
+- [Flutter SDK](https://flutter.dev/docs/get-started/install) 
 - Android Studio or VS Code with Flutter extension
 - A Firebase project (see [Firebase Setup](#-firebase-setup))
 
@@ -211,7 +209,7 @@ This project requires your own Firebase project to run from source.
 1. Go to [Firebase Console](https://console.firebase.google.com/)
 2. Create a new project
 3. Enable:
-   - **Authentication** → Email/Password, Google, Facebook
+   - **Authentication** → Email/Password, Google
    - **Cloud Firestore**
    - **Firebase Storage**
 
@@ -231,30 +229,7 @@ flutterfire configure
 
 This generates `lib/firebase_options.dart` — replace the existing file with your generated one.
 
-### 3. Seed Firestore Data
-
-**Collection:** `GoodMenu` (repeat for HealthMenu, SmartMenu, VeganMenu collections)
-
-```json
-{
-  "name": "Boiled Fries",
-  "image": "https://your-image-url.com/fries.jpg",
-  "price": "12"
-}
-```
-
-**Collection:** `Search`
-
-```json
-{
-  "name": "Boiled Fries",
-  "image": "https://your-image-url.com/fries.jpg",
-  "price": "12",
-  "array": ["boiled", "fries", "potato"]
-}
-```
-
-### 4. Firestore Security Rules
+### 3. Firestore Security Rules
 
 ```
 rules_version = '2';
@@ -278,7 +253,6 @@ service cloud.firestore {
 ## ⚠️ Known Limitations
 
 - **Email validation** accepts `@gmail.com` addresses only.
-- **Notifications screen** is a placeholder — no push notifications are implemented.
 - **Menu data must be seeded manually** in Firestore — there is no in-app admin panel.
 - **Some layouts use fixed heights** that may not scale well on all screen sizes or tablets.
 - The app requires an **active internet connection** (no offline mode).
