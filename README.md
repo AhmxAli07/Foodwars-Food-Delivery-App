@@ -43,7 +43,6 @@ The user interface for **FoodWars** was designed and prototyped in Figma before 
 - **Email / Password** sign-up and sign-in with form validation
 - **Google Sign-In** via OAuth
 - **Password reset** via email link
-- Automatic session persistence (returning users are routed directly to home)
 
 ### 🏠 Home & Discovery
 - Animated splash screen with app logo
@@ -52,8 +51,6 @@ The user interface for **FoodWars** was designed and prototyped in Figma before 
 - **Search** food items across all menus using Firestore queries
 
 ### 🍽️ Menus & Ordering
-- Each restaurant has a full-screen detail page with live Firestore data
-- **16 individual menu item pages** (Boiled Fries, Herbal Tea, Pizza, Ice Cream, Avocado, and more)
 - **Add to Cart** — stored in Firestore with duplicate prevention
 - **Add to Favourites** — dedicated per-user favourites list
 
@@ -66,7 +63,6 @@ The user interface for **FoodWars** was designed and prototyped in Figma before 
 - Profile **cover photo** (user's uploaded image as background)
 - Display username and email
 - **Edit username** with an inline update dialog
-- View and manage your **Favourites** list
 - **Logout** button
 
 ### 📸 Profile Photo
@@ -74,9 +70,7 @@ The user interface for **FoodWars** was designed and prototyped in Figma before 
 - Images stored in **Firebase Storage**, URL saved to Firestore
 
 ### 💬 Real-Time Chat
-- Search for any registered user by **email** or **username**
 - One-to-one **chat rooms** backed by Firestore
-- Messages ordered by **server timestamp**
 - **Online / Offline** status indicator updated via app lifecycle observer
 
 ### 🌙 Dark / Light Theme
@@ -98,7 +92,6 @@ The user interface for **FoodWars** was designed and prototyped in Figma before 
 | Local Persistence | SharedPreferences |
 | Social Auth | Google Sign-In|
 | Image Handling | image_picker, cached_network_image |
-| Navigation | Named routes |
 | UI Components | google_nav_bar, badges, carousel_slider |
 
 ---
@@ -285,9 +278,3 @@ The pre-built APK in [GitHub Releases](../../releases) is signed with a debug ke
 ## 👤 Author
 
 **Ahmad Ali**
-
----
-
-<div align="center">
-Made with ❤️ using Flutter & Firebase
-</div>
