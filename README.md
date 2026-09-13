@@ -275,6 +275,6 @@ The pre-built APK in [GitHub Releases](../../releases) is signed with a debug ke
 
 ---
 
-## 👤 Author
+## 👨‍💻 Author
 
 **Ahmad Ali**
